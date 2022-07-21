@@ -1,9 +1,13 @@
 import React, { Fragment, useState } from "react";
 import { useEffect } from "react";
-import { toast } from "react-toastify";
 import ApexChart from "../../Chart/ApexChart";
 import Default from "../../Components/Layout/Default";
 import Stock from "../../Components/stock";
+
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+
+import { BiSearch } from "react-icons/bi";
 
 import "./home.css";
 
@@ -53,20 +57,35 @@ const Home = () => {
     setChangeInterval(interval);
   };
 
-  
-
   const handleRange = (range) => {
     setChangeRange(range);
   };
 
+  const handleWatchlist = () => {
+    alert("Added to Watchlist");
+    localStorage.setItem("Tesla", "true");
+  };
+
   useEffect(() => {
     stock.getData();
-  }, []);
+  });
 
   return (
     <Fragment>
       <Default>
         <div className="container my-4">
+          <Form className="d-flex mb-5">
+            <Form.Control
+              type="search"
+              placeholder="Enter Stock Ticker"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button className="btn-secondary">
+              <BiSearch />
+            </Button>
+          </Form>
+
           <div className="d-flex justify-content-between">
             <div className="select-interval">
               <p className="mb-1 font-12 text-white">Interval</p>
@@ -133,9 +152,7 @@ const Home = () => {
           <div className="add-watchlist mt-4">
             <button
               className="btn btn-secondary me-3"
-              onClick={() => {
-                alert("Added to Watchlist");
-              }}
+              onClick={handleWatchlist}
             >
               Add to Watchlist
             </button>

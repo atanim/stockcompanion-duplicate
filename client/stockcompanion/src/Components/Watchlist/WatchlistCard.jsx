@@ -52,7 +52,7 @@ const WatchlistCard = () => {
         name: "NASDAQ",
         price: price.toFixed(2),
         change: (price - prClose).toFixed(2),
-        changePr: (((price - prClose) * 100) / price).toFixed(2) + '%',
+        changePr: (((price - prClose) * 100) / price).toFixed(2) + "%",
         open: open.toFixed(2),
         close: close.toFixed(2),
         high: high.toFixed(2),
@@ -62,6 +62,8 @@ const WatchlistCard = () => {
       console.log("E", error);
     }
   };
+
+  const isTesla = localStorage.getItem("Tesla");
 
   useEffect(() => {
     var intvl = setInterval(() => {
@@ -91,19 +93,33 @@ const WatchlistCard = () => {
             <th>Low</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>{trade.symbol}</td>
-            <td>NASDAQ</td>
-            <td className={+trade.change > 0 ? "text-success" : "text-danger"}>{trade.price}</td>
-            <td className={+trade.change > 0 ? "text-success" : "text-danger"}>{trade.change}</td>
-            <td className={+trade.change > 0 ? "text-success" : "text-danger"}>{trade.changePr}</td>
-            <td>{trade.open}</td>
-            <td>{trade.close}</td>
-            <td>{trade.high}</td>
-            <td>{trade.low}</td>
-          </tr>
-        </tbody>
+        {isTesla && (
+          <tbody>
+            <tr>
+              <td>{trade.symbol}</td>
+              <td>NASDAQ</td>
+              <td
+                className={+trade.change > 0 ? "text-success" : "text-danger"}
+              >
+                {trade.price}
+              </td>
+              <td
+                className={+trade.change > 0 ? "text-success" : "text-danger"}
+              >
+                {trade.change}
+              </td>
+              <td
+                className={+trade.change > 0 ? "text-success" : "text-danger"}
+              >
+                {trade.changePr}
+              </td>
+              <td>{trade.open}</td>
+              <td>{trade.close}</td>
+              <td>{trade.high}</td>
+              <td>{trade.low}</td>
+            </tr>
+          </tbody>
+        )}
       </Table>
     </Card>
   );

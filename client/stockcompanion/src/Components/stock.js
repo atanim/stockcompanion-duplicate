@@ -32,11 +32,9 @@ class Stock {
   //   return this.data;
   // }
   getData() {
-    console.log("fetching data:");
     let dataResponse = fetchData(this);
     dataResponse.then((result) => {
       var _data = formatData(result);
-        console.log("formated:", _data);
       this.data = _data;
     });
   }
