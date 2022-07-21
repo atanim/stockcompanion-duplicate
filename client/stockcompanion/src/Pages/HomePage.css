@@ -1,0 +1,23 @@
+.home-page {
+  align-items: center;
+  margin: auto;
+  height: 120vh;
+  background-color: rgb(45, 45, 62);
+}
+
+/* rgb(21, 19, 55); <-- chart settings*/
+
+.chart-container {
+  z-index: 1;
+  margin-top: 5%;
+  color: rgb(23, 23, 46);
+}
+
+.searchstock {
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 0.1%;
+  margin-bottom: 15%;
+}

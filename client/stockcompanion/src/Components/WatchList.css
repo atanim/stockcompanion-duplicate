@@ -1,0 +1,32 @@
+.watch-list-container {
+  position: relative;
+  margin-left: 13%;
+  display: block;
+  border-left: 25%;
+  margin-top: 0.1%;
+  background-color: rgb(204, 201, 212);
+  width: 75%;
+}
+
+.watch-list-item-unselected {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  list-style: none;
+  margin-left: 5%;
+  /* padding-top: 5px;
+  padding-bottom: 5px; */
+}
+
+.watch-list-item-selected {
+  width: 100%;
+  display: flex;
+  background-color: blue;
+  flex-direction: row;
+  justify-content: flex-start;
+  list-style: none;
+  margin-left: 5%;
+  /* padding-top: 5px;
+    padding-bottom: 5px; */
+}

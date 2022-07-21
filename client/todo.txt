@@ -1,0 +1,21 @@
+1. Build the chart
+- get data formatted into chart 
+- connect API
+- format ui element
+
+2. Search Bar
+- Research the bootstrap form (figure out best way to make the search bar)
+- wire the input to a state hook.  useState() - this can be referenced across many files as a "context"
+setContext -> store -> access context wherever 
+
+WatchList
+
+
+
+
+
+
+
+API
+https://www.youtube.com/watch?v=cb1vy1HpVwk&ab_channel=THESHOW
+This may be necessary for databases. Use of database with flask api to store watchlist data etc. 

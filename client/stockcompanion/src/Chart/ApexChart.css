@@ -1,0 +1,7 @@
+.chart {
+  display: inline-block;
+  align-items: center;
+  background-color: rgb(21, 19, 55);
+  /* margin-left: 25%; */
+  text-align: center;
+}

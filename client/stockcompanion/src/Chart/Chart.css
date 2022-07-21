@@ -1,0 +1,60 @@
+.chart-container {
+  display: block;
+}
+
+.interval-container {
+  display: inline-flex;
+  margin-left: 25%;
+}
+
+.range-container {
+  display: inline-flex;
+  margin-left: 25%;
+}
+.interval-select {
+  background-color: rgb(133, 133, 133);
+  font-weight: bold;
+  color: rgb(0, 0, 0) !important;
+  text-transform: uppercase;
+  width: 60px;
+  height: 40px;
+  border: 1px solid black !important;
+  border-radius: 5px;
+  margin-left: 3px;
+  display: inline-block;
+  transition: all 0.2s ease 0s;
+}
+
+.range-select {
+  background-color: rgb(133, 133, 133);
+  font-weight: bold;
+  color: rgb(0, 0, 0) !important;
+  text-transform: uppercase;
+  width: 60px;
+  height: 40px;
+  border: 1px solid black !important;
+  border-radius: 5px;
+  margin-left: 3px;
+  display: inline-block;
+  transition: all 0.2s ease 0s;
+}
+.interval-select:hover {
+  color: white !important;
+  border-radius: 1px;
+  border-color: #f49e70 !important;
+  transition: all 0.2s ease 0s;
+  background-color: rgb(109, 109, 109);
+}
+.range-select:hover {
+  color: white !important;
+
+  border-radius: 1px;
+  border-color: #f49e70 !important;
+  transition: all 0.2s ease 0s;
+  background-color: rgb(109, 109, 109);
+}
+
+.interval-select:focus {
+  transition: all 0.2s ease 0s;
+  background-color: #b9e878;
+}

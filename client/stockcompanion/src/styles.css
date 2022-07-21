@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Ruda:wght@400;500;600;700;800;900&display=swap");
+
+.site-wrap {
+  height: 100vh;
+  width: 100vh;
+  background-color: black;
+}
+
+body {
+  font-family: "Ruda", sans-serif !important;
+  background-color: #31263f !important;
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+
+.main-content{
+  margin-top: 100px;
+  margin-right: 75px !important;
+}
+
+
+.btn-secondary{
+  background: #1c0041 !important;
+  border-color: white !important;
+  outline: none !important;
+  box-shadow: none !important;
+}

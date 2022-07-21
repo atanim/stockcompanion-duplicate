@@ -1,0 +1,38 @@
+[
+    {
+      "price": "656",
+      "ticker": "TSLA",
+      "volume": "556",
+      "link": "https://finance.yahoo.com/quote/TSLA?p=TSLA&.tsrc=fin-srch\n",
+      "title": "Tesla"
+    },
+    {
+      "price": "656",
+      "ticker": "FB",
+      "volume": "556",
+      "link": "https://finance.yahoo.com/quote/META?p=META&.tsrc=fin-srch\n",
+      "title": "Facebook"
+    },
+    {
+      "price": "656",
+      "ticker": "NIO",
+      "volume": "556",
+      "link": "https://finance.yahoo.com/quote/NIO?p=TSLA&.tsrc=fin-srch\n",
+      "title": "NIO"
+    },
+    {
+      "price": "656",
+      "ticker": "SPY",
+      "volume": "556",
+      "link": "https://finance.yahoo.com/quote/SPY?p=SPY&.tsrc=fin-srch\n",
+      "title": "SPY"
+    },
+    {
+      "price": "2500",
+      "ticker": "MCRSFT",
+      "volume": "556",
+      "link": "https://finance.yahoo.com/quote/MSFT?p=MSFT&.tsrc=fin-srch\n",
+      "title": "Microsoft"
+    }
+  ]
+  

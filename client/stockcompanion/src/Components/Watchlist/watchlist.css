@@ -1,0 +1,58 @@
+.watch-list-container {
+  position: relative;
+  margin-left: 7%;
+  display: block;
+  border-left: 25%;
+  margin-top: 0.1%;
+  background-color: rgb(204, 201, 212);
+  width: 75%;
+}
+
+.watch-list-item-unselected {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  list-style: none;
+  margin-left: 5%;
+  /* padding-top: 5px;
+    padding-bottom: 5px; */
+}
+
+.watch-list-item-selected {
+  width: 100%;
+  display: flex;
+  background-color: blue;
+  flex-direction: row;
+  justify-content: flex-start;
+  list-style: none;
+  margin-left: 5%;
+  /* padding-top: 5px;
+      padding-bottom: 5px; */
+}
+
+.date-range {
+  font-size: 15px;
+}
+
+.interval {
+  font-size: 15px;
+}
+
+.interval-txt {
+  margin-bottom: 12px;
+}
+
+.watchlist-card {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.di {
+  border: 1px solid rgb(174, 174, 174);
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 13px;
+  margin-right: 10px;
+}

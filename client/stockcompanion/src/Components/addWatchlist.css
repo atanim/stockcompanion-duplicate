@@ -1,0 +1,46 @@
+.addWatchlist {
+  margin-left: 61%;
+  box-sizing: border-box;
+}
+.setNotify {
+  margin-left: 0%;
+}
+
+.addWatchlistButton{
+  color: black;
+  background-color: gray;
+  border-color: gray;
+  border-radius: 15%;
+  font-weight: bold;
+  border-color: aliceblue;
+  margin-right: 50px;
+}
+
+.setNotifyButton {
+  color: black;
+  background-color: gray;
+  border-color: gray;
+  border-radius: 15%;
+  font-weight: bold;
+  border-color: aliceblue;
+}
+
+.addWatchlistButton:hover {
+  background-color: gray ;
+  border-color: #92df96 !important;
+}
+
+.setNotifyButton:hover {
+  background-color: gray ;
+  border-color: #92df96 !important;
+}
+
+.setNotifyButton:focus{
+  transition: all 0.2s ease 0s;
+  background-color: #b9e878;
+}
+
+.addWatchlistButton:focus {
+  transition: all 0.2s ease 0s;
+  background-color: #b9e878;
+}

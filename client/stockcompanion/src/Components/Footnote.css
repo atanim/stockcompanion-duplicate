@@ -1,0 +1,14 @@
+.footnote-test {
+  position: relative;
+  flex: 1;
+  background-color: rgb(110, 104, 102);
+  align-items: "center";
+  justify-content: "center";
+  margin-left: 25%;
+  margin-right: 37%;
+}
+
+.buttonfootnote {
+  margin-left: 94%;
+  background-color: rgb(19, 14, 14);
+}

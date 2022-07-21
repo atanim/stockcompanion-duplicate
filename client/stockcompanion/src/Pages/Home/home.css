@@ -1,0 +1,14 @@
+.range, .interval {
+  font-weight: bold;
+  border: 1px solid grey;
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  background: white;
+}
+
+.add-watchlist {
+    text-align: right;
+}
