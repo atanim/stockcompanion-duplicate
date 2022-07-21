@@ -1,13 +1,12 @@
-import React, { useEffect, useState, useContext } from "react";
+import React from "react";
 import ApexChart from "./ApexChart";
 import "./Chart.css";
-import { StockContext } from "../Contexts/StockContext";
 import Stock from "../Components/stock";
 
 function Chart(props) {
   const stock = new Stock("TSLA");
-  const { stockData, setStockData } = useContext(StockContext);
-  const [state, setState] = useState("");
+  // const { stockData, setStockData } = useContext(StockContext);
+  // const [state, setState] = useState("");
   setInterval(() => {
     console.log("refreshing...");
     stock.getData();

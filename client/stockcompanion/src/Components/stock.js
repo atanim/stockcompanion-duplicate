@@ -16,17 +16,17 @@ class Stock {
   getRange() {}
   refresh() {
     // calls fetch data with parameters
-    setInterval(() => {
-      console.log("fetching data:");
-      let data = fetchData(this);
-      data.then((result) => {
-        data = formatData(result);
-        console.log("result:", data);
-        this.data = data;
-        // return data;
-      });
-      //this.data = data;
-    }, 20000);
+    // setInterval(() => {
+    //   console.log("fetching data:");
+    //   let data = fetchData(this);
+    //   data.then((result) => {
+    //     data = formatData(result);
+    //     console.log("result:", data);
+    //     this.data = data;
+    //     // return data;
+    //   });
+    //   //this.data = data;
+    // }, 20000);
   }
   // getData() {
   //   return this.data;

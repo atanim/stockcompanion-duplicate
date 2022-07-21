@@ -1,9 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import Stock from "../Components/stock";
+import { formatData } from "../utility/loadChartData";
 
-import { StockContext } from "../Contexts/StockContext";
+// import { StockContext } from "../Contexts/StockContext";
 import "./ApexChart.css";
 
 //data has new Date object that looks like we can automatically format dates from unix time. No needto convert the unix time to another form.
@@ -312,64 +313,122 @@ const data = {
   },
 };
 
+const getIntervalTime = (type) => {
+  switch (type) {
+    case "1m":
+      return 60000;
+
+    case "5m":
+      return 300000;
+
+    case "30m":
+      return 1800000;
+
+    case "1hr":
+      return 3600000;
+
+    case "1wk":
+      return 604800000;
+
+    default:
+      return 60000;
+  }
+};
+
 function ApexChart(props) {
-  const { height = 440, width = 1114 } = props;
+  const { height = 440, width = 1114, range = "1d", interval = "1m" } = props;
 
+  const [state, setState] = useState({
+    stock: props.Stock,
+    data: props.Stock.data,
+  });
 
+  const [chartData, setChartData] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const [state, setState] = useState({ stock: props.Stock, data: props.Stock.data });
+  const loadData = async () => {
+    try {
+      setIsLoading(true);
+      const endTime = Math.round(Date.now() / 1000, 0);
+      const starTime = endTime - 300;
+      const URL = `http://localhost:5000/members?ticker=TSLA&start=${starTime}&end=${endTime}&interval=${interval}&range=${range}`;
+      const responseParse = await fetch(URL);
 
+      const _data = await responseParse.json();
 
-  const [chartData,setChartData] = useState(false);
-
-
-
-
-  useEffect(() =>{
-
-    const chartObject = {
-      series: [
-        {
-          data: data.series,
-        },
-      ],
-      options: {
-        chart: {
-          type: "candlestick",
-          height: 350,
-        },
-        title: {
-          text: `${props.Stock.name}`, //${stockData.name}`, add context hooks for stock
-          align: "left",
-        },
-        xaxis: {
-          type: "datetime",
-        },
-        yaxis: {
-          tooltip: {
-            enabled: true,
+      var formatedData = formatData(_data);
+      setIsLoading(false);
+      const chartObject = {
+        series: [
+          {
+            data: formatedData,
+          },
+        ],
+        options: {
+          chart: {
+            type: "candlestick",
+            height: 350,
+          },
+          title: {
+            text: `${props.Stock.name}`, //${stockData.name}`, add context hooks for stock
+            align: "left",
+          },
+          xaxis: {
+            type: "datetime",
+          },
+          yaxis: {
+            tooltip: {
+              enabled: true,
+            },
           },
         },
-      }
+      };
+
+      setChartData(chartObject);
+    } catch (error) {
+      setIsLoading(false);
+      console.log("E", error);
     }
+  };
 
-    console.log('stock',new Stock('TSLA').data)
+  useEffect(() => {
+    loadData();
 
-    setChartData(chartObject);
-    setState({ stock: props.Stock, data: props.Stock.data })
+    var intvl = setInterval(() => {
+      loadData();
+    }, getIntervalTime(interval));
 
-  },[props.Stock])
+    return () => {
+      if (intvl) {
+        clearInterval(intvl);
+      }
+    };
+  }, [props.Stock, range, interval]);
 
   return (
     <div className="chart">
-      {chartData && <ReactApexChart
-        options={data.options}
-        series={data.series}
-        type="candlestick"
-        width={width}
-        height={height}
-      />
-      }
+      {isLoading && (
+        <img
+          style={{
+            height: 100,
+            width: 100,
+            position: "absolute",
+            top: "45%",
+            zIndex: 2,
+          }}
+          src={require("./loader.gif")}
+          alt=""
+        />
+      )}
+      {chartData && (
+        <ReactApexChart
+          options={chartData.options}
+          series={chartData.series}
+          type="candlestick"
+          width={width}
+          height={height}
+        />
+      )}
     </div>
   );
 }

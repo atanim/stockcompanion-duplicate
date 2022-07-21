@@ -17,12 +17,12 @@ export function getStockData(stockObj) {
 //This parameter takes a stock object: stockData
 export async function fetchData(stockData) {
   let Data = [];
-  const url = `http://localhost:5000/members?ticker=${stockData.name}&start=${stockData.startTime}&end=${stockData.endTime}&interval=${stockData.interval}&range=${stockData.range}`;
-  console.log("URL: ", url);
-  await axios_.get(url).then((res) => {
-    Data = res.data;
-    // return Data;
-  }, []);
+  // const url = `http://localhost:5000/members?ticker=${stockData.name}&start=${stockData.startTime}&end=${stockData.endTime}&interval=${stockData.interval}&range=${stockData.range}`;
+  // console.log("URL: ", url);
+  // await axios_.get(url).then((res) => {
+  //   Data = res.data;
+  //   // return Data;
+  // }, []);
   return Data;
 }
 

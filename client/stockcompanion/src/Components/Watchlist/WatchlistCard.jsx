@@ -11,9 +11,9 @@ const WatchlistCard = () => {
   const [trade, setTrade] = useState({
     symbol: "TSLA",
     name: "NASDAQ",
-    price: "743.004",
-    change: "-",
-    changePr: "-",
+    price: "",
+    change: "",
+    changePr: "",
     open: "-",
     close: "-",
     high: "-",
@@ -38,6 +38,9 @@ const WatchlistCard = () => {
       var close = Object.values(data["Close"]);
       close = close[close.length - 1];
 
+      var prClose = Object.values(data["Close"]);
+      prClose = prClose[prClose.length - 2];
+
       var high = Object.values(data["High"]);
       high = high[high.length - 1];
 
@@ -47,13 +50,13 @@ const WatchlistCard = () => {
       setTrade({
         symbol: "TSLA",
         name: "NASDAQ",
-        price: price.toFixed(5),
-        change: "-",
-        changePr: "-",
-        open: open,
-        close: close,
-        high: high,
-        low: low,
+        price: price.toFixed(2),
+        change: (price - prClose).toFixed(2),
+        changePr: (((price - prClose) * 100) / price).toFixed(2) + '%',
+        open: open.toFixed(2),
+        close: close.toFixed(2),
+        high: high.toFixed(2),
+        low: low.toFixed(2),
       });
     } catch (error) {
       console.log("E", error);
@@ -92,13 +95,13 @@ const WatchlistCard = () => {
           <tr>
             <td>{trade.symbol}</td>
             <td>NASDAQ</td>
-            <td className="text-success">{trade.price}</td>
-            <td className="text-success">+40.00</td>
-            <td className="text-success">+0.41%</td>
-            <td>740.35</td>
-            <td>736.59</td>
-            <td>751.99</td>
-            <td>730.45</td>
+            <td className={+trade.change > 0 ? "text-success" : "text-danger"}>{trade.price}</td>
+            <td className={+trade.change > 0 ? "text-success" : "text-danger"}>{trade.change}</td>
+            <td className={+trade.change > 0 ? "text-success" : "text-danger"}>{trade.changePr}</td>
+            <td>{trade.open}</td>
+            <td>{trade.close}</td>
+            <td>{trade.high}</td>
+            <td>{trade.low}</td>
           </tr>
         </tbody>
       </Table>
